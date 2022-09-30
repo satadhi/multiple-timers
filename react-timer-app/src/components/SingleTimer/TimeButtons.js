@@ -5,7 +5,7 @@ import ReplayIcon from "@material-ui/icons/Replay";
 import * as utils from "../utils";
 
 export default function TimeButtons(props) {
-  const { pause, resume, restart, isRunning, clockValues, input } = props;
+  const { pause, resume, restart, isRunning, clockValues, input, id } = props;
   return (
     <div className="buttons">
       <IconButton
@@ -23,6 +23,7 @@ export default function TimeButtons(props) {
             pause();
           }
         }}
+        id={"button_" + id}
       >
         {!isRunning() ? <PlayArrowIcon /> : <PauseIcon />}
       </IconButton>

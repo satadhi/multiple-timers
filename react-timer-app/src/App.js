@@ -97,6 +97,7 @@ export default function App() {
           expiryTimestamp={timer.expiryTimestamp}
           removeTimer={() => removeTimer(timer)}
           updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
+          
         />
       ))}
       <PlayAll

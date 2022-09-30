@@ -58,6 +58,7 @@ export default function FullTimer(props) {
           isRunning={() => isRunning}
           clockValues={() => clockValues}
           input={() => input}
+          id={id}
         />
       </div>
     );
