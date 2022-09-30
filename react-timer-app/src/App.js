@@ -84,7 +84,7 @@ export default function App() {
         createTimer={() => createTimer()}
         changeInputFilter={(event) => setInputFilter(event)}
       />
-      {timerList.map((timer) => (
+      {timerList.map((timer, index) => (
         <FullTimer
           key={timer.id}
           id={timer.id}
@@ -97,6 +97,7 @@ export default function App() {
           expiryTimestamp={timer.expiryTimestamp}
           removeTimer={() => removeTimer(timer)}
           updateTimeoutSeconds={(seconds) => timeChange(timer, seconds)}
+          timerListNextTimer = {timerList[index+1]?.id}
           
         />
       ))}

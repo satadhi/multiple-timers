@@ -9,14 +9,13 @@ export default function PlayAll(props) {
             <Button
                 onClick={() => {
                     setdisableButton(true);
-                    timerList.forEach(timer => {
-                        const el = document.getElementById("button_" + timer.id);
+                        const el = document.getElementById("button_" + timerList[0].id);
                         el.click();
-                    })
-                    setdisableButton(false)
+
+                    // setdisableButton(false)
 
                 }}
-                disabled={disableButton}
+                disabled={disableButton} id="play-all-button"
                 variant="contained" color="success">Play All</Button>
         </>
     )

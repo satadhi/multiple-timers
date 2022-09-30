@@ -10,7 +10,7 @@ import * as utils from "../utils";
 import "../../index.css";
 
 export default function FullTimer(props) {
-  let { expiryTimestamp, updateTimeoutSeconds, removeTimer, id, isHidden } =
+  let { expiryTimestamp, updateTimeoutSeconds, removeTimer, id, isHidden, timerListNextTimer } =
     props;
 
   const { seconds, minutes, hours, isRunning, pause, resume, restart } =
@@ -18,10 +18,20 @@ export default function FullTimer(props) {
       autoStart: false,
       expiryTimestamp,
       onExpire: () => {
-        let time = utils.parseTime(input);
-        restart(time);
+        // let time = utils.parseTime(input);
+        // restart(time);
         pause();
-        utils.playAudio(id);
+        utils.playAudio(id,
+          () => {
+            if (timerListNextTimer === undefined) {
+              console.log(document.getElementById("play-all-button").disabled )
+              document.getElementById("play-all-button").disabled = false; 
+              console.log(document.getElementById("play-all-button").disabled ) 
+              return;
+            } 
+            const el = document.getElementById("button_" + timerListNextTimer);
+            el.click();
+          });
       },
     });
 

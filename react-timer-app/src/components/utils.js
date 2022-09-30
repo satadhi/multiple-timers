@@ -5,14 +5,16 @@ export function getIdName(id) {
   return id.substring(0, id.lastIndexOf(" "));
 }
 
-export function playAudio(id) {
+export function playAudio(id, callback) {
   Swal.close();
   let audio = new Audio(audioURL);
   audio.loop = true;
   audio.play();
-  Swal.fire({ title: `${getIdName(id)}'s off`, icon: "warning" }).then(() => {
+  Swal.fire({ title: `${getIdName(id)}'s done`, icon: "success" }).then(() => {
     audio.loop = false;
     audio.pause();
+    callback();
+    
   });
 }
 
